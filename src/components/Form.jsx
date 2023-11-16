@@ -30,11 +30,10 @@ const Form = () => {
 
 const FormContainer = styled.form`
     width: 640px;
-    height: 100%;
     margin-top: 100px;
     padding: 40px;
     border: 1px solid #fff;
-    /* border-radius: 10px; */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
 `;
 
 const BoxWrap = styled.div`

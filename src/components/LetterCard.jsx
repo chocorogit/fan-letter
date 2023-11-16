@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const LetterCard = () => {
+const LetterCard = ({ letter }) => {
+    console.log("letter", letter.id);
+    const { createdAt, nickname, avatar, content, writedTo, id } = letter;
+
     return (
-        <>
-            <Letter>
-                <Nickname>제니젠득</Nickname>
-                <Date>23. 11. 03. 오후 02:40:17</Date>
-                <Comment>제니는 천상연옌💖💗 젠득이 화이팅</Comment>
-            </Letter>
-            <Letter>
-                <Nickname>제니젠득</Nickname>
-                <Date>23. 11. 03. 오후 02:40:17</Date>
-                <Comment>제니는 천상연옌💖💗 젠득이 화이팅</Comment>
-            </Letter>
-        </>
+        <Letter>
+            <ThumbImage src={avatar} alt="이미지 설명" />
+            <Nickname>{nickname}</Nickname>
+            <StyledDate>{createdAt}</StyledDate>
+            <Comment>{content}</Comment>
+            {/* 나머지 내용도 추가 */}
+        </Letter>
     );
 };
 
@@ -22,11 +20,19 @@ const Letter = styled.div`
     margin: 24px;
     padding: 24px;
     border: 1px solid #fff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
 `;
+
+const ThumbImage = styled.img`
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+`;
+
 const Nickname = styled.h3`
     font-size: 16px;
 `;
-const Date = styled.span``;
+const StyledDate = styled.span``;
 
 const Comment = styled.p``;
 

@@ -1,29 +1,59 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = ({ member, setMember }) => {
     return (
-        <HeaderWrap>
-            <Title>BLACKPINK FAN-LETTER</Title>
+        <>
+            <HeaderWrap>
+                <Title>BLACKPINK FAN-LETTER</Title>
+            </HeaderWrap>
             <Tabmenu>
-                <Tab>Jenny</Tab>
-                <Tab>Rose</Tab>
-                <Tab>Lisa</Tab>
-                <Tab>Jisoo</Tab>
+                <Tab
+                    value={"Jenny"}
+                    clicked={member === "Jenny"}
+                    onClick={(event) => {
+                        setMember(event.target.getAttribute("value"));
+                    }}
+                >
+                    Jenny
+                </Tab>
+                <Tab
+                    value={"Rose"}
+                    clicked={member === "Rose"}
+                    onClick={(event) => {
+                        setMember(event.target.getAttribute("value"));
+                    }}
+                >
+                    Rose
+                </Tab>
+                <Tab
+                    value={"Lisa"}
+                    clicked={member === "Lisa"}
+                    onClick={(event) => {
+                        setMember(event.target.getAttribute("value"));
+                    }}
+                >
+                    Lisa
+                </Tab>
+                <Tab
+                    value={"Jisoo"}
+                    clicked={member === "Jisoo"}
+                    onClick={(event) => {
+                        setMember(event.target.getAttribute("value"));
+                    }}
+                >
+                    Jisoo
+                </Tab>
             </Tabmenu>
-        </HeaderWrap>
+        </>
     );
 };
 
 const HeaderWrap = styled.header`
     width: 100%;
-    height: 100vh;
     text-align: center;
     border-bottom: 1px solid black;
-    background: url("https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iK1.u6oUF6FE/v0/1600x800.jpg") rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: white;
 `;
 
