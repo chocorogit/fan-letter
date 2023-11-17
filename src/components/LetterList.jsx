@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import letters from "../fakeData.json";
 import LetterCard from "./LetterCard";
 
-const LetterList = ({ member }) => {
-    const lettersForOne = letters.filter((letter) => letter.writedTo === member);
-
+const LetterList = ({ member, lettersList }) => {
+    const lettersForOne = lettersList.filter((letter) => letter.writedTo === member);
+    console.log("lettersForOne", lettersForOne);
     return (
         <Container>
             {lettersForOne.map((letter) => {
-                console.log(letter);
-                return <LetterCard key={letter.id} letter={letter}></LetterCard>;
+                return <LetterCard key={letter.id} letter={letter} member={member}></LetterCard>;
             })}
         </Container>
     );
 };
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
     width: 640px;
     margin: 40px 0;
     border: 1px solid #fff;

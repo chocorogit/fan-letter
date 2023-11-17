@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-const LetterCard = ({ letter }) => {
-    console.log("letter", letter.id);
-    const { createdAt, nickname, avatar, content, writedTo, id } = letter;
+const LetterCard = ({ letter, member }) => {
+    const { nickname, avatar, content } = letter;
+    // LetterCard. createdAt 렌더링하기 전에 문자열로 변환
+    const formattedDate = letter.createdAt.toLocaleString();
 
     return (
-        <Letter>
+        <Letter href="">
             <ThumbImage src={avatar} alt="이미지 설명" />
             <Nickname>{nickname}</Nickname>
-            <StyledDate>{createdAt}</StyledDate>
+            <StyledDate>{formattedDate}</StyledDate>
             <Comment>{content}</Comment>
-            {/* 나머지 내용도 추가 */}
         </Letter>
     );
 };
 
-const Letter = styled.div`
+const Letter = styled.a`
     margin: 24px;
     padding: 24px;
     border: 1px solid #fff;
@@ -34,6 +34,10 @@ const Nickname = styled.h3`
 `;
 const StyledDate = styled.span``;
 
-const Comment = styled.p``;
+const Comment = styled.p`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
 
 export default LetterCard;

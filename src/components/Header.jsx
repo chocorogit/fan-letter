@@ -9,41 +9,57 @@ const Header = ({ member, setMember }) => {
                 <Title>BLACKPINK FAN-LETTER</Title>
             </HeaderWrap>
             <Tabmenu>
-                <Tab
-                    value={"Jenny"}
-                    clicked={member === "Jenny"}
-                    onClick={(event) => {
-                        setMember(event.target.getAttribute("value"));
-                    }}
-                >
-                    Jenny
+                <Tab>
+                    <ClickableTab
+                        href=""
+                        value={"Jenny"}
+                        clicked={member === "Jenny"}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setMember(event.target.getAttribute("value"));
+                        }}
+                    >
+                        Jenny
+                    </ClickableTab>
                 </Tab>
-                <Tab
-                    value={"Rose"}
-                    clicked={member === "Rose"}
-                    onClick={(event) => {
-                        setMember(event.target.getAttribute("value"));
-                    }}
-                >
-                    Rose
+                <Tab>
+                    <ClickableTab
+                        href=""
+                        value={"Rose"}
+                        clicked={member === "Rose"}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setMember(event.target.getAttribute("value"));
+                        }}
+                    >
+                        Rose
+                    </ClickableTab>
                 </Tab>
-                <Tab
-                    value={"Lisa"}
-                    clicked={member === "Lisa"}
-                    onClick={(event) => {
-                        setMember(event.target.getAttribute("value"));
-                    }}
-                >
-                    Lisa
+                <Tab>
+                    <ClickableTab
+                        href=""
+                        value={"Lisa"}
+                        clicked={member === "Lisa"}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setMember(event.target.getAttribute("value"));
+                        }}
+                    >
+                        Lisa
+                    </ClickableTab>
                 </Tab>
-                <Tab
-                    value={"Jisoo"}
-                    clicked={member === "Jisoo"}
-                    onClick={(event) => {
-                        setMember(event.target.getAttribute("value"));
-                    }}
-                >
-                    Jisoo
+                <Tab>
+                    <ClickableTab
+                        href=""
+                        value={"Jisoo"}
+                        clicked={member === "Jisoo"}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setMember(event.target.getAttribute("value"));
+                        }}
+                    >
+                        Jisoo
+                    </ClickableTab>
                 </Tab>
             </Tabmenu>
         </>
@@ -70,14 +86,15 @@ const Tabmenu = styled.ul`
     width: 100%;
     margin: 0 auto;
     font-size: 24px;
-    /* border-bottom: 1px solid #eee; */
 `;
 
 const Tab = styled.li`
-    padding: 4px 24px;
     font-size: 24px;
+`;
+
+const ClickableTab = styled.a`
+    padding: 4px 24px;
     border: 1px solid ${({ clicked }) => (clicked ? "white" : "none")};
-    cursor: pointer;
 `;
 
 export default Header;
