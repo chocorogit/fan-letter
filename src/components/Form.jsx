@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { v4 as uuid } from "uuid";
 import { useEffect } from "react";
 
-const Form = ({ member, lettersList, setLettersList }) => {
+const Form = ({ lettersList, setLettersList }) => {
     const [nickname, setNickname] = useState("");
     const [content, setContent] = useState("");
     const [writedTo, setWritedTo] = useState("Jenny");
@@ -20,6 +20,10 @@ const Form = ({ member, lettersList, setLettersList }) => {
 
         const currentDate = new Date();
 
+        // 유효성검사
+        if (nickname === "" || content === "") {
+            return alert("닉네임과 내용은 필수 입력값입니다.");
+        }
         let newLetter = {
             createdAt: currentDate,
             nickname,
@@ -79,7 +83,7 @@ const Form = ({ member, lettersList, setLettersList }) => {
 
 const FormContainer = styled.form`
     width: 640px;
-    margin-top: 100px;
+    margin-top: 60px;
     padding: 40px;
     border: 1px solid #fff;
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));

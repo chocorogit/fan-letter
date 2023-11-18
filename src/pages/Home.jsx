@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import letters from "../fakeData.json";
 import Header from "components/Header";
 import Form from "components/Form";
 import LetterList from "components/LetterList";
-import LetterCard from "components/LetterCard";
 
-const Home = () => {
+const Home = ({ lettersList, setLettersList }) => {
     const [member, setMember] = useState("Jenny");
-    const [lettersList, setLettersList] = useState(letters);
     return (
         <Container>
             <Header member={member} setMember={setMember} />
-            <Form member={member} lettersList={lettersList} setLettersList={setLettersList} />
+            <Form lettersList={lettersList} setLettersList={setLettersList} />
             <LetterList member={member} lettersList={lettersList} />
         </Container>
     );

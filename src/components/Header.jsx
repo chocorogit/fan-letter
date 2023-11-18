@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
 
 const Header = ({ member, setMember }) => {
@@ -74,27 +73,40 @@ const HeaderWrap = styled.header`
 `;
 
 const Title = styled.h1`
+    height: auto;
+    margin: 0 40px;
     font-size: 64px;
-    margin: 20px 0;
+    margin: 40px 20px 60px;
+    padding: 8px 0;
+    color: #f7a7bb;
+    box-shadow: 0 0 10px #f7a7bb;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 `;
 
 const Tabmenu = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    /* gap: 20px; */
     width: 100%;
+    max-width: 640px;
     margin: 0 auto;
     font-size: 24px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 `;
 
 const Tab = styled.li`
-    font-size: 24px;
+    width: 25%;
+    font-size: 25px;
 `;
 
 const ClickableTab = styled.a`
-    padding: 4px 24px;
-    border: 1px solid ${({ clicked }) => (clicked ? "white" : "none")};
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid ${({ clicked }) => (clicked ? "#f7a7bb" : "#333")};
+    box-shadow: 0 0 8px ${({ clicked }) => (clicked ? "#f7a7bb" : "none")};
 `;
 
 export default Header;

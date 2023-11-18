@@ -4,11 +4,10 @@ import LetterCard from "./LetterCard";
 
 const LetterList = ({ member, lettersList }) => {
     const lettersForOne = lettersList.filter((letter) => letter.writedTo === member);
-    console.log("lettersForOne", lettersForOne);
     return (
         <Container>
             {lettersForOne.map((letter) => {
-                return <LetterCard key={letter.id} letter={letter} member={member}></LetterCard>;
+                return <LetterCard key={letter.id} letter={letter}></LetterCard>;
             })}
         </Container>
     );

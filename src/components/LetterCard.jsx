@@ -1,26 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
 
-const LetterCard = ({ letter, member }) => {
+const LetterCard = ({ letter }) => {
     const { nickname, avatar, content } = letter;
-    // LetterCard. createdAt 렌더링하기 전에 문자열로 변환
     const formattedDate = letter.createdAt.toLocaleString();
 
     return (
-        <Letter href="">
+        <StyledLink to={`/detail/${letter.id}`}>
             <ThumbImage src={avatar} alt="이미지 설명" />
             <Nickname>{nickname}</Nickname>
             <StyledDate>{formattedDate}</StyledDate>
             <Comment>{content}</Comment>
-        </Letter>
+        </StyledLink>
     );
 };
 
-const Letter = styled.a`
+const StyledLink = styled(RouterLink)`
     margin: 24px;
     padding: 24px;
     border: 1px solid #fff;
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+    border-color: ${(props) => (props.isSelected ? "#00f" : "#fff")};
 `;
 
 const ThumbImage = styled.img`
@@ -32,6 +33,7 @@ const ThumbImage = styled.img`
 const Nickname = styled.h3`
     font-size: 16px;
 `;
+
 const StyledDate = styled.span``;
 
 const Comment = styled.p`
