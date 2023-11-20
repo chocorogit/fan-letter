@@ -10,7 +10,7 @@ function Detail({ lettersList }) {
     const formattedDate = letter.createdAt.toLocaleString();
 
     const [isEditing, setIsEditing] = useState(false);
-    const [editingText, setEditingText] = useState("");
+    const [editingText, setEditingText] = useState(letter.content);
 
     const handleDelete = (id) => {
         const answer = window.confirm("정말로 삭제하시겠습니까?");
@@ -44,7 +44,18 @@ function Detail({ lettersList }) {
                 <ThumbImage src={letter.avatar} alt="이미지 설명" />
                 <Nickname>{letter.nickname}</Nickname>
                 <StyledDate>{formattedDate}</StyledDate>
-                <Comment>{letter.content}</Comment>
+                {isEditing ? (
+                    <CommentTextarea
+                        maxLength={20}
+                        value={editingText}
+                        onChange={function (e) {
+                            console.log("e.target.value", e.target.value);
+                            setEditingText(e.target.value);
+                        }}
+                    ></CommentTextarea>
+                ) : (
+                    <Comment>{editingText}</Comment>
+                )}
                 <Buttons>
                     {isEditing ? (
                         <DeleteButton onClick={() => handleEdit(letter.id)}>수정완료</DeleteButton>
@@ -118,6 +129,14 @@ const Comment = styled.p`
     word-break: keep-all;
     overflow-wrap: break-word;
 `;
+const CommentTextarea = styled.textarea`
+    background: black;
+    width: 100%;
+    min-height: 200px;
+    padding: 20px;
+    resize: none;
+`;
+
 const Buttons = styled.div`
     display: flex;
     justify-content: flex-end;

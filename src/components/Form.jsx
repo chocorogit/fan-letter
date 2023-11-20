@@ -82,9 +82,10 @@ const Form = ({ lettersList, setLettersList }) => {
 };
 
 const FormContainer = styled.form`
-    width: 640px;
-    margin-top: 60px;
+    width: calc(100% - 40px);
+    max-width: 640px;
     padding: 40px;
+    margin: 0 20px;
     border: 1px solid #fff;
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
 `;

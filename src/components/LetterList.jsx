@@ -16,8 +16,10 @@ const LetterList = ({ member, lettersList }) => {
 const Container = styled.div`
     display: flex;
     flex-direction: column-reverse;
-    width: 640px;
-    margin: 40px 0;
+    width: calc(100% - 40px);
+    max-width: 640px;
+    margin: 0 20px;
+    margin: 40px 20px;
     border: 1px solid #fff;
 `;
 export default LetterList;

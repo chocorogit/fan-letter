@@ -67,6 +67,7 @@ const Header = ({ member, setMember }) => {
 
 const HeaderWrap = styled.header`
     width: 100%;
+    max-width: 1200px;
     text-align: center;
     border-bottom: 1px solid black;
     color: white;
@@ -88,9 +89,9 @@ const Tabmenu = styled.ul`
     align-items: center;
     justify-content: center;
     /* gap: 20px; */
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 640px;
-    margin: 0 auto;
+    margin: 0 20px;
     font-size: 24px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 `;
